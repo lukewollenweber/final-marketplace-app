@@ -1,0 +1,6 @@
+node_modules/
+.env
+package-lock.json
+users.json
+checklist.txt
+final_output.txt

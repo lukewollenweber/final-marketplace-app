@@ -1,0 +1,5 @@
+body { 
+    background-image: url("/images/ironman.jpg");
+    background-size: 50%;
+    background-attachment: scroll;
+}

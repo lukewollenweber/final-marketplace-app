@@ -1,0 +1,26 @@
+.column {
+    float: left;
+    width: 50%;
+    padding-left: 200px;
+    }
+
+    /* Clear floats after the columns */
+    .row {
+    content: "";
+    display: table;
+    clear: both;
+    } 
+p {
+    color:orangered;
+}
+
+a {
+    background-color: white;
+    width: 57px;
+}
+
+.welcome {
+    background-color: white;
+}
+
+   

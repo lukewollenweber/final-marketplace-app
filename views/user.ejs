@@ -1,0 +1,141 @@
+<%- include('partials/header') -%>
+<style>
+    
+.headerDiv {
+    text-align: center;
+    background: lemonchiffon;
+}
+.welcome {
+    background-color: white;
+}
+#logout {
+    background-color: #f44336;
+    color: black;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(odd) {
+  background-color: lightblue;
+}
+tr:nth-child(even) {
+  background-color: mintcream;
+}
+
+#buy {
+    text-align: center;
+    width: 100%;
+}
+.main {
+  justify-content: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top:50px;
+  margin-bottom:50px;
+
+}
+.card-group {
+  margin-bottom:50px;
+}
+
+
+</style>
+<form actions="/" method="post">
+    <div class="headerDiv">
+    <h1>Hello <%= locals.user.name %> </h1>
+    <a value="submit" id="logout" href="/">Log Out</a>
+</div>
+<div class="main">
+</form>
+<form actions="/user/:username" method="post">
+<div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">At a glance</h5>
+        <table>
+            <tr>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Current Balance</th>
+              <th>Items Owned</th>
+            </tr>
+            <tr>
+              <td><%= locals.user.name %></td>
+              <td><%= locals.user.user_name %></td>
+              <td>$<%= locals.user.balance %></td>
+              <td><%= locals.user.items.length %></td>
+            </tr>
+        </table>
+        <h5 class="card-title">Your Items</h5>
+        <div class="row row-cols-1 row-cols-md-3 g-6">
+            <% for (let i=0; i < locals.user.items.length; i++) { %>
+                <div class="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= locals.user.items[i].item_name %> </h5>
+                        <p class="card-text">Item ID: <%= locals.user.items[i].item_id %></p>
+                        <p class="card-text"><small class="text-muted">Price: <%= locals.user.items[i].item_price %></small></p>
+                      </div>
+                    </div>
+                  </div>
+           <% } %>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Buy an Item</h5>
+        <div class="row row-cols-1 row-cols-md-3 g-6">
+        <% for (let i = 0; i < locals.users.length; i++) { %>
+            <% for (let j = 0; j < locals.users[i].items.length; j++ ) { %>
+                <% if (users[i].user_name !== locals.user.user_name) { %>
+                    <% if (locals.user.balance > locals.users[i].items[j].item_price) { %>
+                    <label>
+                        <input type="radio" name="item" value= <%= locals.users[i].items[j].item_id %>>
+                        <div class="col">
+                            <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= locals.users[i].items[j].item_name %></h5>
+                                <p class="card-text">Item ID: <%= locals.users[i].items[j].item_id %></p>
+                                <p class="card-text"><%= locals.users[i].user_name %></p>
+                                <p class="card-text"><small class="text-muted">Price: $<%= locals.users[i].items[j].item_price %></small></p>
+                            </div>
+                            </div>
+                        </div>
+                     </label>
+                     <%  } else { %>
+                        <label>
+                            <input disabled=true type="radio" name="item" value= <%= locals.users[i].items[j].item_id %>>
+                            <div class="col">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= locals.users[i].items[j].item_name %></h5>
+                                    <p class="card-text">Item ID: <%= locals.users[i].items[j].item_id %></p>
+                                    <p class="card-text"><%= locals.users[i].user_name %></p>
+                                    <p class="card-text"><small class="text-muted">Price: <%= locals.users[i].items[j].item_price %></small></p>
+                                </div>
+                                </div>
+                            </div>
+                         </label>
+                        <% } %>
+            <% } %>
+            <% } %>
+    <% } %>
+  </div>
+</div>
+</div>
+</div>
+<button value="submit" id="buy">Buy Now</button>
+</form>
+</div>
+  <%- include('partials/footer') -%>

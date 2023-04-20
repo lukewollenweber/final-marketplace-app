@@ -1,0 +1,31 @@
+.headerDiv {
+    text-align: center;
+    background: lemonchiffon;
+}
+#logout {
+    background-color: #f44336;
+    color: black;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(odd) {
+  background-color: lightblue;
+}
+tr:nth-child(even) {
+  background-color: mintcream;
+}
+.card-body {
+    background-color: white;
+}
+#buy {
+    text-align: center;
+    width: 100%;
+}

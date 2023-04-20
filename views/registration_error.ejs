@@ -1,0 +1,24 @@
+<%- include('partials/header') -%>
+
+<link rel="stylesheet" href="./css/homeStyle.css">
+<div class="row">
+    <div class="column">
+      <h2>New User? Create An Account</h2>
+      <p>Choose a Unique Username</p>
+      <input type="text" id="username" name="username"><br><br>
+      <p>Enter Your Name</p>
+      <input type="text" id="name" name="name"><br><br>
+      <p>Choose a Starting Balance</p>
+      <input type="text" id="balance" name="balance"><br><br>
+      <button type="submit">Register</button><br>
+      <p>Error registering. Please check the Username input.</p>
+    </div>
+    <div class="column">
+      <h2>Log in to an Existing Account</h2>
+      <p>Log in as</p>
+      <input type="text" id="existingUser" name="existingUser"><br><br>
+      <button type="submit">Log In</button><br>
+    </div>
+  </div>
+
+<%- include('partials/footer') -%>
