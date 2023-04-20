@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 const router = express.Router()
 
-const authenticateUser = require('../middleware/middleware')
+const authenticateUser = require('../middleware/authenticator')
 
 router.get('/',(req,res)=>{
     //renders home file with Home as locals variable
