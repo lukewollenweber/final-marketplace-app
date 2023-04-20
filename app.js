@@ -10,7 +10,7 @@ const Product = require('./models/product')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
-const userRouter = require('./router/user')
+const userRouter = require('./router/router')
 
 
 app.listen(process.env.PORT)
